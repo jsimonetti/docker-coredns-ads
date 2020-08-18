@@ -1,0 +1,15 @@
+.:53 {
+   ads {
+        log
+        auto-update-interval 2h
+        unfiltered-strict-default-lists
+        target 127.0.0.1
+        target-ipv6 ::1
+        list-store /config/lists
+   }
+   forward . tls://1.1.1.1 tls://1.0.0.1 {
+        tls
+   }
+   log
+   errors
+}
