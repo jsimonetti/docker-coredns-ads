@@ -1,15 +1,29 @@
 .:53 {
-   ads {
-        log
-        auto-update-interval 2h
-        unfiltered-strict-default-lists
-        target 127.0.0.1
-        target-ipv6 ::1
-        list-store /config/lists
-   }
-   forward . tls://1.1.1.1 tls://1.0.0.1 {
-        tls
-   }
-   log
-   errors
+  cache {
+    prefetch 10 5m
+    serve_stale 1h
+  }
+  ads {
+    log
+    auto-update-interval 2h
+    unfiltered-strict-default-lists
+    target 127.0.0.1
+    target-ipv6 ::1
+    list-store /config/lists
+    white-list file:///config/allowlist.txt
+    black-list file:///config/blocklist.txt
+  }
+  forward . tls://1.1.1.1 tls://1.0.0.1 {
+    tls
+    health_check 2s
+    policy round_robin
+  }
+  log . {
+    class denial success
+  }
+  errors {
+    consolidate 5m ".* i/o timeout$"
+    consolidate 30s "^Failed to .+"
+  }
+  reload 10s
 }
