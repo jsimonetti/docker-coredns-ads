@@ -6,13 +6,6 @@
   ads {
     log
     auto-update-interval 2h
-    # From pihole
-    blacklist https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
-    blacklist https://mirror1.malwaredomains.com/files/justdomains
-    blacklist https://sysctl.org/cameleon/hosts
-    blacklist https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
-    blacklist https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
-    blacklist https://hosts-file.net/ad_servers.txt
     default-lists
     target 127.0.0.1
     target-ipv6 ::1
