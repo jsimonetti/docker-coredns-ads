@@ -1,8 +1,5 @@
 .:53 {
-  cache {
-    prefetch 10 5m
-    serve_stale 1h
-  }
+  cache 300
   ads {
     log
     auto-update-interval 2h
