@@ -13,9 +13,7 @@
     white-list file:///config/allowlist.txt
     black-list file:///config/blocklist.txt
   }
-  forward . 1.1.1.1 1.0.0.1 {
-    policy round_robin
-  }
+  forward . 1.1.1.1:53 1.0.0.1:53 2606:4700:4700::1111:53 2606:4700:4700::1001:53
   log . {
     class denial success
   }
