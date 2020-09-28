@@ -2,13 +2,13 @@
   cache 300
   ads {
     log
-    auto-update-interval 2h
-    default-lists
+    auto-update-interval 6h
+    unfiltered-strict-default-lists
     target 127.0.0.1
     target-ipv6 ::1
     list-store /config/lists
-    white-list file:///config/allowlist.txt
-    black-list file:///config/blocklist.txt
+    whitelist file:///config/allowlist.txt
+    blacklist file:///config/blocklist.txt
   }
   forward . 1.1.1.1:53 1.0.0.1:53 2606:4700:4700::1111:53 2606:4700:4700::1001:53
   log . {
@@ -18,5 +18,5 @@
     consolidate 5m ".* i/o timeout$"
     consolidate 30s "^Failed to .+"
   }
-  reload 10s
+  reload 1m
 }
