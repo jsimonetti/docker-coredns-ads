@@ -13,9 +13,7 @@
     white-list file:///config/allowlist.txt
     black-list file:///config/blocklist.txt
   }
-  forward . tls://1.1.1.1 tls://1.0.0.1 {
-    tls
-    health_check 2s
+  forward . 1.1.1.1 1.0.0.1 {
     policy round_robin
   }
   log . {
