@@ -3,7 +3,7 @@
   ads {
     log
     auto-update-interval 6h
-    unfiltered-strict-default-lists
+    default-lists
     target 127.0.0.1
     target-ipv6 ::1
     list-store /config/lists
